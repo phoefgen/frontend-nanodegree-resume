@@ -106,7 +106,7 @@ a {
 
 #topContacts {
   
-    display: block;
+   display: inline-flex; 
   }
  
 }
