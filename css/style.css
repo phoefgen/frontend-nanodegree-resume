@@ -9,8 +9,8 @@ h3,
 h4,
 h5,
 h6 {
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  margin: 10px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -104,6 +104,12 @@ a {
   display: none;
 }
 
+#topContacts {
+  
+    display: block;
+  }
+ 
+}
 .orange {
   background-color: #f5ae23;
 }
@@ -209,7 +215,7 @@ span {
 
 #mapDiv {
   height: 400px;
-  width: 100%;
+  width: 95%;
   padding-bottom: 5%;
 }
 
