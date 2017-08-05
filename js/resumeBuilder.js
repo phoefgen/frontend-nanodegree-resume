@@ -69,21 +69,21 @@ var projects = {
             "dates": "Feb 2016 to present.",
             "description": "Managing the transition from 7000+ hosts on Nagios with  Tier1 NOC technicians performing triage  to automated monitoring  pipelines based around Sensu and Stackstorm automation.Implemented Agile process, developed and delivered team upskilling and training, actively contributed code, and driving formal requirements gathering.",
             "images": [
-                "images/demonware_logo1.png"
+                "images/fry.jpg"
             ]
         },
         {
-            "title": "",
+            "title": "Developed Prototype Monitoring System",
             "dates": "Feb 2016-May 2015",
             "description": "Lead the design, build, support in production of an experimental, monitoring system using Sensu, docker, jenkins, stackstorm, and AWS. Prototype now being extended by a full team into a platform to support Call of Duty in 2017",
-            "images": ["images/demonware_logo1.png"]
+            "images": ["images/fry.jpg"]
         },
         {
             "title": "Built a suite of custom monitoring tooling",
             "dates": "July 2009-May 2014",
             "description": "Including writing software to federate 8 monitoring service dashboards into a single pane of glass.",
             "images": [
-                "images/demonware_logo1.png"
+                "images/fry.jpg"
             ]
         }
     ]
@@ -92,18 +92,20 @@ var projects = {
 projects.display = function() {
     // Display projects if they exist.
     if (hasContent(projects.projects)) {
-        $("#projects:first").append(HTMLprojectStart)
-
         // Generate project detail:
         projects.projects.forEach(function(project) {
+
+
+            
+            $("#projects.last").append("<div class='project-item'> <h2>poop</h2></div>");
             $("#projects:last").append(HTMLprojectTitle.replace("%data%", project.title));
             $("#projects:last").append(HTMLprojectDates.replace("%data%", project.dates));
             $("#projects:last").append(HTMLprojectDescription.replace("%data%", project.description))
-
             // Support N project images. 
             project.images.forEach(function(imageUrl) {
-                $("#projects:first").append(HTMLprojectImage.replace("%data%", imageUrl))
+                $("#projects:last").append(HTMLprojectImage.replace("%data%", imageUrl))
             })
+            $("#projects.last").append('</div>')
         })
     }
 }
@@ -118,14 +120,14 @@ projects.display()
 
 var bio = {
     "name": "Paul Hoefgen",
-    "role": "Automation Engineer",
-    "welcomeMessage": "Observability and process automation engineer.",
+    "role": "Process Engineer",
+    "welcomeMessage": "Building Observability and process automation tooling at scale.",
     "bioPic": "images/me_jeep.jpg",
     "contacts": {
         "mobile": "+1 204 228 0683",
         "email": "paul.hoefgen@gmail.com",
         "twitter": "@singlelement",
-        "github": "github.com/phoefgen",
+        "github": "phoefgen",
         "location": "Vancouver, BC"
     },
     "skills": ["Python",
@@ -144,20 +146,22 @@ var bio = {
 bio.display = function() {
     // Display static data:
     $("#headShot").append(HTMLbioPic.replace("%data%", bio.bioPic));
-    $("#bannerData:last").append(HTMLheaderName.replace("%data%", bio.name));
-    $("#bannerData:last").append(HTMLheaderRole.replace("%data%", bio.role));
+    $("#headLine:last").append(HTMLheaderName.replace("%data%", bio.name));
+    $("#headLine:last").append(HTMLheaderRole.replace("%data%", bio.role));
 
-    // Build top contacts string:
-    var contactList = bio.contacts.location + ' twitter: ' + bio.contacts.twitter +
-        ' Github: ' + bio.contacts.github
-    $("#bannerData:last").append(contactList)
-    $("#header:last").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+    // Build top contacts icons:
+    $("#headLine").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+    $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+
+
 
     // Display additional data:
     if (hasContent(bio.skills)) {
-        $("#header:last").append(HTMLskillsStart);
+        $("#glanceSkills:last").append(HTMLskillsStart);
         bio.skills.forEach(function(skill) {
-            $("#header:last").append(HTMLskills.replace("%data%", skill));
+            $("#glanceSkills:last").append(HTMLskills.replace("%data%", skill));
         })
     }
 }

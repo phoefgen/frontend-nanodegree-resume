@@ -11,53 +11,59 @@
 
     <!-- Load the page styles. -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC1eLahaH82PZiUNTkyk3YrsPP40MobRro"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-    <div id="main">
-        <!--
-    Structure is defined here, content is generated dynamically from the data API in resumeBuilder.js 
-    -->
-        <header class="flex-box">
-            <div id="headShot" class="flex-column">
-            </div>
-            <div id="bannerData" class="flex-column">
+    <div id="main" class="site">
+        <header class="centred-flex">
+            <div class="center-content">
+              <div id="headLine">
+              </div>
+              <div id="topContacts" class="centred-flex">
+              </div>
             </div>
         </header>
-        <div id="workExperience" class="gray">
-            <h2>Work Experience</h2>
+        <aside class="centred-flex">
+          <div id="logoWall" class="logoWall center-content centred-flex">
+              <img src="images/sensu-logo.png" alt="Sensu Logo" class="scale-img">              
+              <img src="images/st2-logo.png" alt="Stackstorm Logo" class="scale-img">
+              <img src="images/centos-logo.png" alt="Centos Logo" class="scale-img">
+              <img src="images/python-logo.png" alt="Python Logo" class="scale-img"> 
+              <img src="images/docker-logo.png" alt="Docker Logo" class="scale-img">
+              <img src="images/grafana-logo.png" alt="Grafana Logo" class="scale-img">
+              <img src="images/ubuntu-logo.png" alt="Ubuntu Logo" class="scale-img">
+          </div>
+        </aside> 
+        <div id="details">
+            <section id="projects">
+            </section>
+            <section id="workExperience">
+            </section>
+            <section id="education">
+            </section>
         </div>
-        <div id="projects">
-            <h2>Projects</h2>
-        </div>
-        <div id="education" class="gray">
-            <h2>Education</h2>
-        </div>
-        <div id="mapDiv">
-            <h2>Where I've Lived and Worked</h2>
-        </div>
-        <div id="lets-connect" class="dark-gray">
-            <h2 class="orange center-text">Let's Connect</h2>
-            <ul id="footerContacts" class="flex-box">
-            </ul>
-        </div>
+        <footer>
+            FFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTERFOOTEROOTER
+        </footer>
     </div>
-
-    <script src="js/jQuery.js"></script>
-    <script src="js/helper.js"></script>
+    <!-- Loading JS after content -->
+    <script src="js/helper.js "></script>
+    <script src="js/jQuery.js "></script>
+    <script src="js/helper.js "></script>
     <script src="js/resumeBuilder.js"></script>
 
 
-    <script>
+<!--    <script>
         // Determines if sections should be displayed, based on the presence of relevant data. 
 
-        if (document.getElementsByClassName('flex-item').length === 0) {
+        if (document.getElementById('headLine').length === 0) {
             document.getElementById('topContacts').style.display = 'none';
         }
         if (document.getElementsByTagName('h1').length === 0) {
-            document.getElementById('header').style.display = 'none';
+            document.getElementById('headLine').style.display = 'none';
         }
         if (document.getElementsByClassName('work-entry').length === 0) {
             document.getElementById('workExperience').style.display = 'none';
@@ -75,6 +81,7 @@
             document.getElementById('mapDiv').style.display = 'none';
         }
     </script>
+-->
 </body>
 
 </html>
