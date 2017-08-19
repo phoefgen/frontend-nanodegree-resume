@@ -46,7 +46,8 @@ var work = {
 work.display = function() {
     // Display only if jobs exist
     if (hasContent(work.jobs)) {
-        $("#workExperience").prepend(HTMLworkStart)
+        $("#workExperience").prepend(HTMLworkStart);
+        $("#workExperience").append('<h2> Job History </h2><hr>');
         work.jobs.forEach(function(job) {
             $("#workExperience").append(HTMLworkEmployer.replace("%data%", job.employer));
             $("#workExperience").append(HTMLworkTitle.replace("%data%", job.title));
@@ -54,7 +55,7 @@ work.display = function() {
             $("#workExperience").append(HTMLworkLocation.replace("%data%", job.location));
             $("#workExperience").append(HTMLworkDescription.replace("%data%", job.description));
         })
-    }
+    };
 }
 work.display()
 
@@ -65,26 +66,29 @@ work.display()
 
 var projects = {
     "projects": [{
-            "title": "Product manager on monitoring modernisation project for Activision online titles",
+            "title": "Product managing the monitoring modernisation project for Demonware/Activision online titles",
             "dates": "Feb 2016 to present.",
             "description": "Managing the transition from 7000+ hosts on Nagios with  Tier1 NOC technicians performing triage  to automated monitoring  pipelines based around Sensu and Stackstorm automation.Implemented Agile process, developed and delivered team upskilling and training, actively contributed code, and driving formal requirements gathering.",
             "images": [
-                "images/fry.jpg"
+                "images/demonware_logo1.png"
             ]
+
         },
         {
             "title": "Developed Prototype Monitoring System",
             "dates": "Feb 2016-May 2015",
             "description": "Lead the design, build, support in production of an experimental, monitoring system using Sensu, docker, jenkins, stackstorm, and AWS. Prototype now being extended by a full team into a platform to support Call of Duty in 2017",
-            "images": ["images/fry.jpg"]
+            "images": ["images/demonware_logo1.png"]
         },
+
         {
             "title": "Built a suite of custom monitoring tooling",
             "dates": "July 2009-May 2014",
             "description": "Including writing software to federate 8 monitoring service dashboards into a single pane of glass.",
             "images": [
-                "images/fry.jpg"
+                "images/demonware_logo1.png",
             ]
+
         }
     ]
 };
@@ -93,19 +97,20 @@ projects.display = function() {
     // Display projects if they exist.
     if (hasContent(projects.projects)) {
         // Generate project detail:
+        $("#projects:first").append('<h2> Recent Projects </h2><hr>')
         projects.projects.forEach(function(project) {
+            // Generate project div component strings:
+           var title = HTMLprojectTitle.replace("%data%", project.title);
+           var dates = HTMLprojectDates.replace("%data%", project.dates);
+           var description = HTMLprojectDescription.replace("%data%", project.description);
 
-
-            
-            $("#projects.last").append("<div class='project-item'> <h2>poop</h2></div>");
-            $("#projects:last").append(HTMLprojectTitle.replace("%data%", project.title));
-            $("#projects:last").append(HTMLprojectDates.replace("%data%", project.dates));
-            $("#projects:last").append(HTMLprojectDescription.replace("%data%", project.description))
             // Support N project images. 
+            var projectImages = '';
             project.images.forEach(function(imageUrl) {
-                $("#projects:last").append(HTMLprojectImage.replace("%data%", imageUrl))
-            })
-            $("#projects.last").append('</div>')
+                projectImages = projectImages + HTMLprojectImage.replace("%data%", imageUrl);
+            });
+            // Create a project.
+            $("#projects:last").append("<div class='project-item'>" + projectImages + title + description + dates + "</div>");
         })
     }
 }

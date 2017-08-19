@@ -10,14 +10,20 @@ h4,
 h5,
 h6 {
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: lightslategray;
+
 }
 
 
 
 .education-entry,
 .work-entry,
+
 
 
 h1 {
@@ -59,7 +65,7 @@ h5 {
 
 .date-text {
     font-style: italic;
-    font-size: 14px;
+    font-size: 24px;
     color: #999;
     line-height: 16px;
     float: left;
@@ -74,7 +80,7 @@ h5 {
 }
 
 p {
-    font-size: 14px;
+    font-size: 24px;
     color: #333;
     line-height: 21px;
 }
@@ -164,7 +170,7 @@ span {
 .site {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 800px 1fr 1fr;
+    grid-template-rows: 500px 1fr 1fr;
     grid-gap: 20px;
     grid-template-areas:
         "header logowall"
@@ -174,54 +180,67 @@ span {
 
 header {
     grid-area: header;
-    background-color: darkslategray;
+    background-color: darkgrey;
 
 }
 
 aside {
     grid-area: logowall;
-    background-color: #4FC9E5;
-
+    background-color: grey;
 }
 
 #details {
     grid-area: main-details;
-
-
 }
 
-/* Manage Project layout with Grid */
 
 .project-item {
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: lightgrey;
+    padding-top: 10px;
+    /* Manage Project layout with Grid */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 2fr 3fr 1fr;
     grid-gap: 10px;
     grid-template-areas:
-      "project-image project-title project-date"
-      "project-image project-description";
-    background-color: cyan
+      "project-title project-title project-image  "
+      "project-description project-description ."
+      ". . project-date";
 }
 
 
 .project-title {
     grid-area: project-title;
-    background-color: pink;
+}
+
+.project-title h3 {
+    font-size: 30px;
+    padding: 5px;
+
 }
 
 .project-image {
     grid-area: project-image;
-    background-color: blue;
+}
+
+.project-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .project-date {
     grid-area: project-date;
-    background-color: orange;
+    text-align: center;
 }
 
 .project-description {
     grid-area: project-description;
-    background-color: green;
+    object-fit: contain;
+    width: 80%;
+    margin: .5vw;
 }
 
 
@@ -247,9 +266,7 @@ footer {
 }
 
 @media only screen and (max-width:900px) {
-    .biopic {
-        width: 175px;
-    }
+
 }
 
 @media only screen and (max-width: 750px) {
