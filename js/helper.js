@@ -29,12 +29,12 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkStart = '<div class="job-item"></div>';
+var HTMLworkEmployer = '<span class="job-employer">: %data%</span></h3>';
+var HTMLworkTitle = '<span class="job-title"><h3>%data%</span>';
+var HTMLworkDates = '<span class="location-text">%data%</span>';
+var HTMLworkLocation = '<span class="location-text">%data%</span>';
+var HTMLworkDescription = '<div class="job-description"><p><br>%data%</p></div>';
 
 var HTMLprojectTitle = '<div class="project-title"><h3>%data%</h3></div>';
 var HTMLprojectDates = '<div class="project-date date-text">%data%</div>';

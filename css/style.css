@@ -16,15 +16,12 @@ h6 {
 
 body {
     background-color: lightslategray;
-
 }
 
 
 
 .education-entry,
 .work-entry,
-
-
 
 h1 {
     font-size: 70px;
@@ -36,14 +33,13 @@ h1 {
 h2 {
     font-weight: bold;
     font-size: 60px;
-    color: #999;
+    color: darkgrey;
     line-height: 29px;
     padding: 10px;
     text-align: center;
 }
 
 h3 {
-    font-style: italic;
     font-size: 20px;
     color: #000;
     line-height: 22px;
@@ -74,8 +70,8 @@ h5 {
 .location-text {
     font-style: italic;
     font-size: 14px;
-    color: #999;
-    line-height: 16px;
+    color: black;
+    line-height: 14px;
     float: right;
 }
 
@@ -152,10 +148,6 @@ span {
     padding: 5px;
 }
 
-#lets-connect {
-    text-align: center;
-}
-
 .centred-flex {
     display: flex;
     align-items: center;
@@ -170,7 +162,7 @@ span {
 .site {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 500px 1fr 1fr;
+    grid-template-rows: 550px 1fr 1fr;
     grid-gap: 20px;
     grid-template-areas:
         "header logowall"
@@ -193,13 +185,14 @@ aside {
     grid-area: main-details;
 }
 
-
+/* Formatting for project cards */
 .project-item {
-
+    /* style project cards */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: lightgrey;
     padding-top: 10px;
-    /* Manage Project layout with Grid */
+
+    /* Manage Project card layout with Grid */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 2fr 3fr 1fr;
@@ -209,7 +202,6 @@ aside {
       "project-description project-description ."
       ". . project-date";
 }
-
 
 .project-title {
     grid-area: project-title;
@@ -242,11 +234,86 @@ aside {
     width: 80%;
     margin: .5vw;
 }
+/* end formatting for project cards */
 
+/* formatting for work experience cards*/
 
-#workExperience {
-    grid-area: experience;
+#jobs-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
+
+.job-section {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+}
+
+.job-item {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: lightgrey;
+    padding-top: 10px;
+    max-width: 45%;
+
+     /* Manage Project card layout with Grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      "job-item-header"
+      "job-description";
+}
+
+.job-item-header {
+    background-color: cadetblue;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 15px;
+}
+
+.job-title-background {
+    background-color: white;
+    padding: 1px;
+    margin: 1px;
+    grid-area: job-title;
+    max-width: 100%;
+}
+.job-title h3 {
+    font-size: 25px;
+    padding: 5px;
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+}
+
+.job-date {
+    text-align: center;
+    grid-area: job-date;
+}
+
+.job-location {
+    grid-area: job-location;
+
+}
+
+.job-description {
+    grid-area: job-description;
+}
+
+.job-employer {
+    grid-area: job-employer;
+    text-align: right;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+
+/* end formatting for work experience cards */
+
+
 
 #education {
     grid-area: education
@@ -260,9 +327,6 @@ footer {
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1000px) {
-    #lets-connect {
-        margin-top: 5%;
-    }
 }
 
 @media only screen and (max-width:900px) {

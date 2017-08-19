@@ -46,15 +46,20 @@ var work = {
 work.display = function() {
     // Display only if jobs exist
     if (hasContent(work.jobs)) {
-        $("#workExperience").prepend(HTMLworkStart);
+        // Generate Job Section:
         $("#workExperience").append('<h2> Job History </h2><hr>');
+        $("#workExperience").append('<div id="jobs-flexbox">');
         work.jobs.forEach(function(job) {
-            $("#workExperience").append(HTMLworkEmployer.replace("%data%", job.employer));
-            $("#workExperience").append(HTMLworkTitle.replace("%data%", job.title));
-            $("#workExperience").append(HTMLworkDates.replace("%data%", job.dates));
-            $("#workExperience").append(HTMLworkLocation.replace("%data%", job.location));
-            $("#workExperience").append(HTMLworkDescription.replace("%data%", job.description));
+            // Generate job compnent strings
+            var employer = HTMLworkEmployer.replace("%data%", job.employer);
+            var title = HTMLworkTitle.replace("%data%", job.title);
+            var dates = HTMLworkDates.replace("%data%", job.dates);
+            var location = HTMLworkLocation.replace("%data%", job.location);
+            var description = HTMLworkDescription.replace("%data%", job.description);
+            // Create Job Card
+        $("#jobs-flexbox:last").append("<div class='job-item'><div class='job-item-header'>" + title + employer + dates + location + "</div>" + description + "</div>")
         })
+     //  $("#workExperience").append('</div>');
     };
 }
 work.display()
@@ -96,7 +101,7 @@ var projects = {
 projects.display = function() {
     // Display projects if they exist.
     if (hasContent(projects.projects)) {
-        // Generate project detail:
+        // Generate project Section:
         $("#projects:first").append('<h2> Recent Projects </h2><hr>')
         projects.projects.forEach(function(project) {
             // Generate project div component strings:
