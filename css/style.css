@@ -56,7 +56,7 @@ h2,
 h3,
 h4,
 h5 {
-    padding: 10px 5%;
+    padding: 20px 5%;
 }
 
 .date-text {
@@ -122,11 +122,17 @@ p {
 }
 
 
-
-ul {
+#skills-list {
+    text-align: center;
+    border:1px solid #ccc;
+    border-width:1px 0;
+}
+#skills-list li {
     list-style-type: none;
-    overflow: auto;
-    list-style-type: none;
+    display: inline;
+    font-family: Courier New, monospace;
+    font-size: 30px;
+    text-align: center;
 }
 
 header li {
@@ -162,7 +168,6 @@ span {
 .site {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 550px 1fr 1fr;
     grid-gap: 20px;
     grid-template-areas:
         "header logowall"
@@ -322,13 +327,20 @@ aside {
     display: block;
     
 }
-
+.education-item h3 {
+    font-size: 45px;
+}
 .education-item h4 {
     font-size: 50px;
 }
 
+.education-item h5 {
+    font-size: 20px;
+}
+
 .education-item h6 {
     text-align: right;
+    font-size: 20px;
 }
 
 footer {

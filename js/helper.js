@@ -26,8 +26,8 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<ul id="skills-list"></ul>';
+var HTMLskills = '<li class="flex-item">%data%</li>';
 
 var HTMLworkStart = '<div class="job-item"></div>';
 var HTMLworkEmployer = '<span class="job-employer">: %data%</span></h3>';
@@ -78,7 +78,7 @@ function initializeMap() {
     For the map to be displayed, the googleMap var must be
     appended to #mapDiv in resumeBuilder.js.
     */
-    map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
+    map = new google.maps.Map(document.querySelector('#footer'), mapOptions);
 
 
     /*

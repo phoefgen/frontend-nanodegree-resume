@@ -168,9 +168,12 @@ bio.display = function() {
     // Display additional data:
     if (hasContent(bio.skills)) {
         $("#glanceSkills:last").append(HTMLskillsStart);
+        $("#skills-list:last").append(HTMLskills.replace("%data%", "Skills ["));
         bio.skills.forEach(function(skill) {
-            $("#glanceSkills:last").append(HTMLskills.replace("%data%", skill));
+            $("#skills-list:last").append(HTMLskills.replace("%data%", skill));
         })
+        $("#skills-list:last").append(HTMLskills.replace("%data%", ']'));
+
     }
 }
 bio.display();
@@ -233,19 +236,14 @@ education.display = function() {
     }
    if (hasContent(education.onlineCourses)) {
         education.onlineCourses.forEach(function(course) {
-            console.log(course);
             var title = HTMLonlineTitle.replace("%data%", course.title);
             var dates = HTMLonlineDates.replace("%data%", course.dates);
 
             //Construct URL:
             var url = HTMLonlineURL.replace("%data%", course.url);
-            console.log(url);
             var link = '<a href="%link%"> %school%'.replace('%link%', url);
-            console.log(link);
             var school = HTMLonlineSchool.replace("%data%", course.school);
-            console.log(school);
             link = link.replace('%school%', school);
-            console.log(link);
 
 
             $("#education:last").append("<div class='education-item'><h6>Online/Certifications</h6>" + dates + school + title  + link + "</div>");
@@ -255,17 +253,4 @@ education.display = function() {
 education.display();
 
 
-/*
-    
-        education.onlineCourses.forEach(function(course) {
-                $("#education:last").append();
-                $("#education:last").append();
-                $("#education:last").append();
-                $("#education:last").append();
-            }
-
-        )
-    }
-} */
-
-//$("mapDiv").append(googleMap);
+$("#mapdiv").append(googleMap);
