@@ -109,7 +109,7 @@ projects.display = function() {
            var dates = HTMLprojectDates.replace("%data%", project.dates);
            var description = HTMLprojectDescription.replace("%data%", project.description);
 
-            // Support N project images. 
+            // Support n project images. 
             var projectImages = '';
             project.images.forEach(function(imageUrl) {
                 projectImages = projectImages + HTMLprojectImage.replace("%data%", imageUrl);
@@ -165,8 +165,6 @@ bio.display = function() {
     $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
     $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
 
-
-
     // Display additional data:
     if (hasContent(bio.skills)) {
         $("#glanceSkills:last").append(HTMLskillsStart);
@@ -187,9 +185,17 @@ bio.display();
 var education = {
     "schools": [{
         "name": "Royal Melbourne Institue of Technology",
-        "location": "New York",
-        "degree": "Handicrafts",
-        "majors": ["Computer Science"],
+        "location": "Melbourne, Australia",
+        "degree": "Computer Science",
+        "majors": ["Handicrafts", "Woodworking"],
+        "dates": "May 6th 2015 - May 12th 2015",
+        "url": "http://rmit.edu.au/"
+    },
+    {
+        "name": "Hogwarts",
+        "location": "England",
+        "degree": "Computer Magic",
+        "majors": ["Reboots", "Virus Spells"],
         "dates": "May 6th 2015 - May 12th 2015",
         "url": "http://rmit.edu.au/"
     }],
@@ -197,46 +203,69 @@ var education = {
             "title": "Full Stack Nanodegree",
             "school": "Udacity",
             "dates": "Febuary 2016 - August 2017",
-            "url": "udacity.com"
+            "url": "https://udacity.com"
         },
         {
             "title": "Front End Nanodegree",
             "school": "Udacity",
             "dates": "Feburary 2017 - Ongoing",
-            "url": "udacity.com"
+            "url": "https://udacity.com"
         }
     ]
 }
 
 education.display = function() {
     if (hasContent(education.schools)) {
-        $("#education:first").append(HTMLschoolStart);
+        $("#education:first").append('<h2>Education</h2><hr>')
 
         education.schools.forEach(function(school) {
-            $("#education:last").append(HTMLschoolName.replace("%data%", school.name));
-            $("#education:last").append(HTMLschoolDates.replace("%data%", school.dates));
-            $("#education:last").append(HTMLschoolLocation.replace("%data%", school.location));
-            $("#education:last").append(HTMLschoolMajor.replace("%data%", school.degree));
+            var name = HTMLschoolName.replace("%data%", school.name);
+            var date = HTMLschoolDates.replace("%data%", school.dates);
+            var location = HTMLschoolLocation.replace("%data%", school.location);
+            var degree = HTMLschoolMajor.replace("%data%", school.degree);
+            var minors = ''
+            // Fixed API spec, adjusting variable names to correct  semantics.
             school.majors.forEach(function(major) {
-                $("#education:last").append(HTMLschoolDegree.replace("%data%", major))
+            minors += major + ' ';
             })
+            $("#education:last").append("<div class='education-item'><h6>Traditional Facility</h6>" + location + date + name + degree + "<h5>Minors in: " + minors + "</h5>"  + "</div>");
         })
     }
-
-    if (hasContent(education.onlineCourses)) {
-        $("#education:last").append(HTMLonlineClasses);
-
+   if (hasContent(education.onlineCourses)) {
         education.onlineCourses.forEach(function(course) {
-                $("#education:last").append(HTMLonlineTitle.replace("%data%", course.title));
-                $("#education:last").append(HTMLonlineSchool.replace("%data%", course.school));
-                $("#education:last").append(HTMLonlineDates.replace("%data%", course.dates));
-                $("#education:last").append(HTMLonlineURL.replace("%data%", course.url));
+            console.log(course);
+            var title = HTMLonlineTitle.replace("%data%", course.title);
+            var dates = HTMLonlineDates.replace("%data%", course.dates);
 
-            }
+            //Construct URL:
+            var url = HTMLonlineURL.replace("%data%", course.url);
+            console.log(url);
+            var link = '<a href="%link%"> %school%'.replace('%link%', url);
+            console.log(link);
+            var school = HTMLonlineSchool.replace("%data%", course.school);
+            console.log(school);
+            link = link.replace('%school%', school);
+            console.log(link);
 
-        )
+
+            $("#education:last").append("<div class='education-item'><h6>Online/Certifications</h6>" + dates + school + title  + link + "</div>");
+        })
     }
 }
 education.display();
 
-$("mapDiv").append(googleMap);
+
+/*
+    
+        education.onlineCourses.forEach(function(course) {
+                $("#education:last").append();
+                $("#education:last").append();
+                $("#education:last").append();
+                $("#education:last").append();
+            }
+
+        )
+    }
+} */
+
+//$("mapDiv").append(googleMap);

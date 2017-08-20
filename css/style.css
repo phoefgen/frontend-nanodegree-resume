@@ -47,7 +47,7 @@ h3 {
 
 h4 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 24px;
     color: #4a4a4a;
     line-height: 17px;
 }
@@ -256,9 +256,9 @@ aside {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: lightgrey;
     padding-top: 10px;
-    max-width: 45%;
+    width: 45%;
 
-     /* Manage Project card layout with Grid */
+     /* Manage job card layout with Grid */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr;
@@ -271,7 +271,7 @@ aside {
     background-color: cadetblue;
     border-style: solid;
     border-width: 3px;
-    border-color: black;
+    border-color: grey;
     border-radius: 15px;
 }
 
@@ -310,13 +310,25 @@ aside {
     font-size: 25px;
 }
 
-
 /* end formatting for work experience cards */
 
 
 
-#education {
-    grid-area: education
+.education-item {
+    background-color: lightgrey;
+    border-width: 80px;
+    border-left-style: solid;
+    border-color: cornflowerblue;
+    display: block;
+    
+}
+
+.education-item h4 {
+    font-size: 50px;
+}
+
+.education-item h6 {
+    text-align: right;
 }
 
 footer {
